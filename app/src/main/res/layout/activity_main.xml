@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/utrainer_tabLayout"
+        android:layout_width="390dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selected_tab_imageView"
+        app:tabMode="scrollable">
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/prograams_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/barbell_overhead"
+            android:text="programs" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/exercise_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/pushup"
+            android:text="Exercises" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/history_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/history"
+            android:text="History" />
+
+        <android.support.design.widget.TabItem
+            android:id="@+id/progress_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/chart"
+            android:text="Progress" />
+    </android.support.design.widget.TabLayout>
+
+    <ImageView
+        android:id="@+id/selected_tab_imageView"
+        android:layout_width="210dp"
+        android:layout_height="146dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[9]" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="177dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="@+id/selected_tab_imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/selected_tab_imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/viewpager_parent"
+        android:layout_width="match_parent"
+        android:layout_height="493dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/utrainer_tabLayout">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/programs_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </android.support.v4.view.ViewPager>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>
