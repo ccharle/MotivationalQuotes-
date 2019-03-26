@@ -1,8 +1,8 @@
 [
-{
-motivation: "Of course it’ s hard.It’ s supposed to be hard.It it were easy,everybody would do it.Hard is what makes it great.",
-first: "No pain,no gain.Shut up and train.",
-second: "Your body can stand almost anything. It’s your mind that you have to convince.",
-third: "Success isn’t always about greatness. It’s about consistency. Consistent hard work gains success. Greatness will come."
-}
+  {
+    "motivation": "Of course it’ s hard.It’ s supposed to be hard.It it were easy,everybody would do it.Hard is what makes it great.",
+    "first": "No pain,no gain.Shut up and train.",
+    "second": "Your body can stand almost anything. It’s your mind that you have to convince.",
+    "third": "Success isn’t always about greatness. It’s about consistency. Consistent hard work gains success. Greatness will come."
+  }
 ]
