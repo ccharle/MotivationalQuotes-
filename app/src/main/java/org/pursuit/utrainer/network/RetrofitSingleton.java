@@ -9,7 +9,7 @@ public class RetrofitSingleton {
 
     private RetrofitSingleton(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://github.com/")
+                .baseUrl("https://raw.githubusercontent.com")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

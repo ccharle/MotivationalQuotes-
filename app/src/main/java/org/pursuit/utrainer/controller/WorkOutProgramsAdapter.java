@@ -7,25 +7,30 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.pursuit.utrainer.R;
+import org.pursuit.utrainer.fragment.ProgramDetailsFragment;
+import org.pursuit.utrainer.fragment.WorkOutProgramsFragment;
 import org.pursuit.utrainer.model.WorkoutPrograms;
 import org.pursuit.utrainer.view.WorkOutProgramsViewHolder;
 
 import java.util.List;
 
 public class WorkOutProgramsAdapter extends RecyclerView.Adapter<WorkOutProgramsViewHolder> {
-    private View childView;
-    private List<WorkoutPrograms> workoutProgramsList;
 
-    public WorkOutProgramsAdapter(List<WorkoutPrograms> workoutProgramsList) {
+    private List<WorkoutPrograms> workoutProgramsList;
+    private WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener;
+;
+
+    public WorkOutProgramsAdapter(List<WorkoutPrograms> workoutProgramsList, WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener) {
         this.workoutProgramsList = workoutProgramsList;
+        this.onFragmentInteractionListener = onFragmentInteractionListener; ;
     }
 
     @NonNull
     @Override
 
     public WorkOutProgramsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        childView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.programs_itemview, viewGroup, false);
-        return new WorkOutProgramsViewHolder(childView);
+       View childView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.workoutprogram_itemview, viewGroup, false);
+        return new WorkOutProgramsViewHolder(childView,onFragmentInteractionListener);
     }
 
     @Override
