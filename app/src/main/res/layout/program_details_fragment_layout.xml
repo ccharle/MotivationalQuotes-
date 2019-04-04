@@ -3,10 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.programs_fragment">
+    tools:context=".fragment.WorkOutProgramsFragment">
 
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/workout_program_recylerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

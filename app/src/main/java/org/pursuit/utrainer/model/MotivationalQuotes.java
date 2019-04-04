@@ -8,17 +8,7 @@ public class MotivationalQuotes {
     private String second;
     private String third;
 
-    public MotivationalQuotes(String motivation, String first, String second, String third) {
-        this.motivation = motivation;
-        this.first = first;
-        this.second = second;
-        this.third = third;
-    }
-
-
-
     public String getMotivation() {
-
         return motivation;
     }
 
@@ -34,20 +24,24 @@ public class MotivationalQuotes {
         return third;
     }
 
-
-
-
-    public class MotivationalQuotesResponse {
-
-        private List<MotivationalQuotes> motivationalQuotes;
-
-        public MotivationalQuotesResponse(List<MotivationalQuotes> motivationalQuotes) {
-            this.motivationalQuotes = motivationalQuotes;
-        }
-
-        public List<MotivationalQuotes> getMotivationalQuotes() {
-            return motivationalQuotes;
-        }
+    public MotivationalQuotes(String motivation, String first, String second, String third) {
+        this.motivation = motivation;
+        this.first = first;
+        this.second = second;
+        this.third = third;
     }
 
+
+    public class MotivationalResponse{
+
+        private List <MotivationalQuotes> motivational;
+
+        public List<MotivationalQuotes> getMotivational() {
+            return motivational;
+        }
+
+        public MotivationalResponse(List<MotivationalQuotes> motivational) {
+            this.motivational = motivational;
+        }
+    }
 }

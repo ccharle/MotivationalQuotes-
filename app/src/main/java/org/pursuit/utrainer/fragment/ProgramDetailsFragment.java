@@ -11,20 +11,24 @@ import android.view.ViewGroup;
 import org.pursuit.utrainer.R;
 
 
-
-public class programs_fragment extends Fragment {
+public class ProgramListFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-
+    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
 
-    public static programs_fragment newInstance(String param1, String param2) {
-        programs_fragment fragment = new programs_fragment();
+    public ProgramListFragment() {
+        // Required empty public constructor
+    }
+
+    // TODO: Rename and change types and number of parameters
+    public static ProgramListFragment newInstance(String param1, String param2) {
+        ProgramListFragment fragment = new ProgramListFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -44,10 +48,11 @@ public class programs_fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.fragment_programs_fragment, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_program_list, container, false);
     }
 
+    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -71,8 +76,8 @@ public class programs_fragment extends Fragment {
         mListener = null;
     }
 
-
     public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }
