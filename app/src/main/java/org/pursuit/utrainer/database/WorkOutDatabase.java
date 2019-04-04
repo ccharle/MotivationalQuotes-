@@ -1,5 +1,5 @@
 
-package org.pursuit.utrainer;
+package org.pursuit.utrainer.database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
@@ -10,9 +10,7 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 import android.support.annotation.NonNull;
 
-import org.pursuit.utrainer.fragment.ProgramDetailsFragment;
 import org.pursuit.utrainer.model.ProgramsDetail;
-import org.pursuit.utrainer.model.WorkoutPrograms;
 
 import java.util.List;
 
