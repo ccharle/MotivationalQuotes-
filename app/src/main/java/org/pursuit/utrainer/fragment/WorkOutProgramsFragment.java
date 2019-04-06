@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import org.pursuit.utrainer.R;
 import org.pursuit.utrainer.controller.WorkOutProgramsAdapter;
+import org.pursuit.utrainer.model.ProgramsDetail;
 import org.pursuit.utrainer.model.WorkoutPrograms;
 
 import java.util.ArrayList;
@@ -75,11 +76,11 @@ public class WorkOutProgramsFragment extends Fragment {
     }
 
 
-    public void onButtonPressed(Uri uri) {
+   /* public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction();
         }
-    }
+    }*/
 
 
     @Override
@@ -102,7 +103,7 @@ public class WorkOutProgramsFragment extends Fragment {
 
 
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction();
+      void onFragmentInteraction(String workout);
     }
 
 

@@ -11,37 +11,43 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.pursuit.utrainer.R;
 import org.pursuit.utrainer.controller.ProgramDetailsAdapter;
 import org.pursuit.utrainer.model.ProgramsDetail;
+import org.pursuit.utrainer.view.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProgramDetailsFragment extends Fragment {
+public class DisplayWorkOutFragment extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
+    private static final String WORKOUT_PARAM = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
+    private TextView workoutNameTextView, workOutDetailTextview, firstSetTextView, secondSetTextView, thirdSetTextView;
+
+    private String getWorkoutParam;
     private String mParam2;
     private RecyclerView getWorkOutRecyclerView;
     private ProgramDetailsAdapter programDetailsAdapter;
     private WorkOutProgramsFragment.OnFragmentInteractionListener myListener;
     private OnProgramFragmentInteractionListener mListener;
     private List<ProgramsDetail> programsDetailList = new ArrayList<>();
-    private String repsDetail = String.valueOf(R.string.reps);
+    private String workoutDescription;
 
-    public ProgramDetailsFragment() {
+
+    public DisplayWorkOutFragment() {
         // Required empty public constructor
     }
 
 
-    public static ProgramDetailsFragment newInstance() {
-        ProgramDetailsFragment fragment = new ProgramDetailsFragment();
+    public static DisplayWorkOutFragment newInstance(String workout) {
+        DisplayWorkOutFragment fragment = new DisplayWorkOutFragment();
         Bundle args = new Bundle();
+        args.putString(WORKOUT_PARAM, workout);
         fragment.setArguments(args);
         return fragment;
     }
@@ -50,18 +56,28 @@ public class ProgramDetailsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            getWorkoutParam = getArguments().getString(WORKOUT_PARAM);
+
+            switch (getWorkoutParam) {
+
+                case "P.H.A.T": {
+                    getPHAT();
+
+
+                }
+
+
+            }
         }
-        ProgramsDetail programsDetail = new ProgramsDetail(repsDetail, "Barbell");
-        programsDetailList.add(programsDetail);
+
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.program_details_fragment_layout, container, false);
+        return inflater.inflate(R.layout.workout_db_fraglayout, container, false);
     }
 
     @Override
@@ -72,17 +88,19 @@ public class ProgramDetailsFragment extends Fragment {
     }
 
 
-    public void onButtonPressed(Uri uri) {
+   /* public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction();
         }
-    }
+    }*/
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        workoutDescription = getActivity().getResources().getString(R.string.reps);
         if (context instanceof OnProgramFragmentInteractionListener) {
             mListener = (OnProgramFragmentInteractionListener) context;
+
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnProgramFragmentInteractionListener");
@@ -112,6 +130,26 @@ public class ProgramDetailsFragment extends Fragment {
 
     private void setViews(View v) {
         getWorkOutRecyclerView = v.findViewById(R.id.program_details_recylerview);
+        workoutNameTextView = v.findViewById(R.id.workout_name_textview);
+        workOutDetailTextview = v.findViewById(R.id.workout_detail_textview);
+    }
 
+    public void getPHAT() {
+        ProgramsDetail programsDetail = new ProgramsDetail(workoutDescription,  getActivity().getResources().getString(R.string.barbell_row));
+        ProgramsDetail programsDetail2 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.pull_up));
+        ProgramsDetail programsDetail3 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.seated_cable_row));
+        ProgramsDetail programsDetail4 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.flat_dumbell_press));
+        ProgramsDetail programsDetail5 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.dips));
+        ProgramsDetail programsDetail6 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.seated_dumbell_shoulder_press));
+        ProgramsDetail programsDetail7 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.barbell_curl));
+        ProgramsDetail programsDetail8 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.skullcrushers));
+        programsDetailList.add(programsDetail);
+        programsDetailList.add(programsDetail2);
+        programsDetailList.add(programsDetail3);
+        programsDetailList.add(programsDetail4);
+        programsDetailList.add(programsDetail5);
+        programsDetailList.add(programsDetail6);
+        programsDetailList.add(programsDetail7);
+        programsDetailList.add(programsDetail8);
     }
 }

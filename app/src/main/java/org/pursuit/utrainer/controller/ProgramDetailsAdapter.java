@@ -7,15 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.pursuit.utrainer.R;
-import org.pursuit.utrainer.fragment.ProgramDetailsFragment;
-import org.pursuit.utrainer.fragment.WorkOutProgramsFragment;
 import org.pursuit.utrainer.model.ProgramsDetail;
-import org.pursuit.utrainer.view.ProgramDetailsViewHolder;
-import org.pursuit.utrainer.view.WorkOutProgramsViewHolder;
+import org.pursuit.utrainer.view.WorkOutDatabaseViewHolder;
 
 import java.util.List;
 
-public class ProgramDetailsAdapter extends RecyclerView.Adapter<ProgramDetailsViewHolder> {
+public class ProgramDetailsAdapter extends RecyclerView.Adapter<WorkOutDatabaseViewHolder> {
     private List<ProgramsDetail> programsDetailList;
 
     public ProgramDetailsAdapter(List<ProgramsDetail> programsDetailList) {
@@ -24,14 +21,16 @@ public class ProgramDetailsAdapter extends RecyclerView.Adapter<ProgramDetailsVi
 
     @NonNull
     @Override
-    public ProgramDetailsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public WorkOutDatabaseViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View childView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.programs_detail_itemview, viewGroup, false);
-        return new ProgramDetailsViewHolder(childView);
+        return new WorkOutDatabaseViewHolder(childView);
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull ProgramDetailsViewHolder programDetailsViewHolder, int i) {
+    public void onBindViewHolder(@NonNull WorkOutDatabaseViewHolder workOutDatabaseViewHolder, int i) {
+        ProgramsDetail programsDetail = programsDetailList.get(i);
+        workOutDatabaseViewHolder.onBindWorkout(programsDetail);
 
     }
 

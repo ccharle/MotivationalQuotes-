@@ -7,24 +7,23 @@ import android.widget.TextView;
 
 import org.pursuit.utrainer.R;
 import org.pursuit.utrainer.fragment.WorkOutProgramsFragment;
+import org.pursuit.utrainer.model.ProgramsDetail;
 import org.pursuit.utrainer.model.WorkoutPrograms;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WorkOutProgramsViewHolder extends RecyclerView.ViewHolder {
     private TextView workoutsTextView;
     private WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener;
 
+    private List<ProgramsDetail> programsDetailList = new ArrayList<>();
 
-    public WorkOutProgramsViewHolder(@NonNull final View itemView, final WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener) {
+    public WorkOutProgramsViewHolder(@NonNull final View itemView, WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener) {
         super(itemView);
         this.onFragmentInteractionListener = onFragmentInteractionListener;
         setViews();
 
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onFragmentInteractionListener.onFragmentInteraction();
-            }
-        });
 
 
     }
@@ -38,11 +37,19 @@ public class WorkOutProgramsViewHolder extends RecyclerView.ViewHolder {
 
 
     public void onBind(WorkoutPrograms workoutPrograms) {
-
         workoutsTextView.setText(workoutPrograms.getProgramTitle());
+
+        itemView.setOnClickListener(v -> {
+            String workOut = workoutsTextView.getText().toString();
+            onFragmentInteractionListener.onFragmentInteraction(workOut);
+
+
+        });
+
 
 
     }
+
 
 
 }

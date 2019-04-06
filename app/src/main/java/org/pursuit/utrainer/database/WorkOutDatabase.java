@@ -10,8 +10,6 @@ import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 import android.support.annotation.NonNull;
 
-import org.pursuit.utrainer.model.ProgramsDetail;
-
 import java.util.List;
 
 @Entity(tableName = "workout")
@@ -27,6 +25,18 @@ public class WorkOutDatabase {
         return workOutName;
     }
 
+    public void setWorkOutName(String workOutName) {
+        this.workOutName = workOutName;
+    }
+
+    public void setWorkOutDescription(String workOutDescription) {
+        this.workOutDescription = workOutDescription;
+    }
+
+    public void setBodyWorked(@NonNull String bodyWorked) {
+        this.bodyWorked = bodyWorked;
+    }
+
     public String getWorkOutDescription() {
         return workOutDescription;
     }
@@ -40,18 +50,16 @@ public class WorkOutDatabase {
     public interface WorkoutDAO {
 
         @Insert
-        void Insert(ProgramsDetail programsDetail);
+        void Insert(WorkOutDatabase workOutDatabase);
 
         @Update
-        void update(ProgramsDetail programsDetail);
+        void update(WorkOutDatabase workOutDatabase);
 
         @Delete
-        void delete(ProgramsDetail programsDetail);
+        void delete(WorkOutDatabase workOutDatabase);
 
         @Query("SELECT * FROM  workout")
         public List<WorkOutDatabase> getWorkOutName();
-
-
 
 
     }

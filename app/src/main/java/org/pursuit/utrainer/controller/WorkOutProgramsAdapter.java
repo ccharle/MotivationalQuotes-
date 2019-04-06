@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.pursuit.utrainer.R;
-import org.pursuit.utrainer.fragment.ProgramDetailsFragment;
 import org.pursuit.utrainer.fragment.WorkOutProgramsFragment;
 import org.pursuit.utrainer.model.WorkoutPrograms;
 import org.pursuit.utrainer.view.WorkOutProgramsViewHolder;

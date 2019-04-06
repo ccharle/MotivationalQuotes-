@@ -1,6 +1,7 @@
 package org.pursuit.utrainer.view;
 
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -10,9 +11,11 @@ import android.widget.TextView;
 
 
 import org.pursuit.utrainer.R;
-import org.pursuit.utrainer.fragment.ProgramDetailsFragment;
+import org.pursuit.utrainer.controller.ViewPagerAdapter;
+import org.pursuit.utrainer.fragment.DisplayWorkOutFragment;
 import org.pursuit.utrainer.fragment.WorkOutProgramsFragment;
 import org.pursuit.utrainer.model.MotivationalQuotes;
+import org.pursuit.utrainer.model.ProgramsDetail;
 import org.pursuit.utrainer.model.WorkoutPrograms;
 import org.pursuit.utrainer.network.RetrofitSingleton;
 
@@ -27,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends FragmentActivity implements WorkOutProgramsFragment.OnFragmentInteractionListener, ProgramDetailsFragment.OnProgramFragmentInteractionListener {
+public class MainActivity extends FragmentActivity implements WorkOutProgramsFragment.OnFragmentInteractionListener, DisplayWorkOutFragment.OnProgramFragmentInteractionListener {
     private static final String TAG = "This is my error";
     private TabLayout uTrainerTabLayout;
     private ViewPager programsViewPager;
@@ -35,7 +38,6 @@ public class MainActivity extends FragmentActivity implements WorkOutProgramsFra
     private TextView quotesTextView;
     private String motivationalQuotes;
     private List<MotivationalQuotes> motivationalQuotesList = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,7 @@ public class MainActivity extends FragmentActivity implements WorkOutProgramsFra
 
     private void setViews() {
         uTrainerTabLayout = findViewById(R.id.utrainer_tabLayout);
-        //programsViewPager = findViewById(R.id.programs_viewpager);
+         programsViewPager = findViewById(R.id.main_viewpager);
 
         selectedTabImageView = findViewById((R.id.selected_tab_imageView));
         quotesTextView = findViewById(R.id.motivationalquotes_textview);
@@ -91,6 +93,7 @@ public class MainActivity extends FragmentActivity implements WorkOutProgramsFra
                     case 0: {
                         selectedTabImageView.setImageResource(R.drawable.barbell_overhead);
                         onProgramTabSelected();
+
 
                         break;
 
@@ -189,23 +192,31 @@ public class MainActivity extends FragmentActivity implements WorkOutProgramsFra
     }
 
 
-
     private void preLoadedPrograms() {
         WorkoutPrograms PHAT = new WorkoutPrograms("P.H.A.T");
 
+
+    }
+
+
+    @Override
+    public void onFragmentInteraction() {
+        DisplayWorkOutFragment displayWorkOutFragment = new DisplayWorkOutFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_container, displayWorkOutFragment)
+                .commit();
 
 
     }
 
     @Override
-    public void onFragmentInteraction() {
-        ProgramDetailsFragment programDetailsFragment = new ProgramDetailsFragment();
+    public void onFragmentInteraction(String workout) {
+        DisplayWorkOutFragment displayWorkOutFragment = DisplayWorkOutFragment.newInstance(workout);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.main_container, programDetailsFragment)
+                .replace(R.id.main_container, displayWorkOutFragment)
                 .commit();
-
-
     }
 }
 
