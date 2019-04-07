@@ -17,7 +17,6 @@ public class WorkOutProgramsViewHolder extends RecyclerView.ViewHolder {
     private TextView workoutsTextView;
     private WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener;
 
-    private List<ProgramsDetail> programsDetailList = new ArrayList<>();
 
     public WorkOutProgramsViewHolder(@NonNull final View itemView, WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener) {
         super(itemView);

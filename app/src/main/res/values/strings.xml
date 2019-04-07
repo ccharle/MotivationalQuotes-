@@ -23,5 +23,15 @@
 
     <string name="skullcrushers">Skullcrushers</string>
 
+    <string name="program"> Work Out Programs </string>
+
+    <string name="exercises"> Exercises </string>
+
+    <string name="history">History</string>
+
+    <string name="progress"> My Progress</string>
+
+    <string name="onConnectionFailure">"Connection Error"</string>
+
 
 </resources>

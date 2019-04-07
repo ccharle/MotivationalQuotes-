@@ -13,11 +13,11 @@ import org.pursuit.utrainer.database.UTrainerDatabase_Impl;
 import org.pursuit.utrainer.database.WorkOutDatabase;
 import org.pursuit.utrainer.model.ProgramsDetail;
 
-public class WorkOutDatabaseViewHolder extends RecyclerView.ViewHolder {
+public class ProgramDetailsViewHolder extends RecyclerView.ViewHolder {
     private TextView workoutNameTextView, workOutDetailTextview, firstSetTextView, secondSetTextView, thirdSetTextView;
 
 
-    public WorkOutDatabaseViewHolder(@NonNull View itemView) {
+    public ProgramDetailsViewHolder(@NonNull View itemView) {
         super(itemView);
         setViews();
 

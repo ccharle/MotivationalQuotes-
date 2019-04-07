@@ -21,7 +21,7 @@ public class WorkOutProgramsAdapter extends RecyclerView.Adapter<WorkOutPrograms
 
     public WorkOutProgramsAdapter(List<WorkoutPrograms> workoutProgramsList, WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener) {
         this.workoutProgramsList = workoutProgramsList;
-        this.onFragmentInteractionListener = onFragmentInteractionListener; ;
+        this.onFragmentInteractionListener = onFragmentInteractionListener;
     }
 
     @NonNull
