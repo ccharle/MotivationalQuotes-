@@ -5,12 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/transparent"
+    android:background="@color/lipstickRed"
     android:fitsSystemWindows="true"
     tools:context=".view.MainActivity">
 
     <android.support.v7.widget.Toolbar
-        android:backgroundTint="@color/colorRedDark"
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"

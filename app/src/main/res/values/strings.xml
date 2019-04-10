@@ -33,5 +33,18 @@
 
     <string name="onConnectionFailure">"Connection Error"</string>
 
+    <string name="set1">Set 1</string>
+    <string name="set2">Set 2</string>
+    <string name="set3">Set 3</string>
+    <string name="set4">Set 4</string>
+    <string name="set5">Set 5</string>
+    <string name="set6">Set 6</string>
+    <string name="set7">Set 7</string>
+    <string name="set8">Set 8</string>
+    <string name="set9">Set 9</string>
+    <string name="set10">Set 10</string>
+    <string name="multiply">x</string>
+    <string name="pounds">lbs.</string>
+
 
 </resources>

@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
         setViews();
         onNavItemSelection();
         setTabImageView();
+
         //tabPositonChange();
 //        uTrainerTabLayout.setupWithViewPager(programsViewPager);
         setRetrofit();
@@ -68,15 +69,20 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
 
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
+
+            case R.id.nav_program:
+
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     private void setViews() {
 
@@ -216,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
 
     private void onProgramTabSelected() {
 
-       //uTrainerTabLayout.setupWithViewPager(programsViewPager);
+        //uTrainerTabLayout.setupWithViewPager(programsViewPager);
         WorkOutProgramsFragment workOutProgramsFragment = new WorkOutProgramsFragment();
         getSupportFragmentManager()
                 .beginTransaction()
@@ -257,19 +263,23 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
     }
 
     public void onNavItemSelection() {
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                // set item as selected to persist highlight
-                menuItem.setChecked(true);
-                // close drawer when item is tapped
-                drawerLayout.closeDrawers();
+        navigationView.setNavigationItemSelectedListener(menuItem -> {
+            // set item as selected to persist highlight
+            menuItem.setChecked(true);
+            // close drawer when item is tapped
+            drawerLayout.closeDrawers();
 
-                // Add code here to update the UI based on the item selected
-                // For example, swap UI fragments here
+            switch (menuItem.getItemId()) {
 
-                return true;
+                case R.id.nav_program:
+                    onProgramTabSelected();
+                    break;
+
             }
+            // Add code here to update the UI based on the item selected
+            // For example, swap UI fragments here
+
+            return true;
         });
     }
 
@@ -295,5 +305,7 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
 
         thread.start();
     }
+
+
 }
 

@@ -27,7 +27,7 @@ public class DisplayWorkOutFragment extends Fragment {
     private static final String WORKOUT_PARAM = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private TextView workoutNameTextView, workOutDetailTextview, firstSetTextView, secondSetTextView, thirdSetTextView;
+    private TextView workoutNameTextView, workOutDetailTextview, firstSetTextView, weightTextView, thirdSetTextView;
 
     private String getWorkoutParam;
     private String mParam2;
@@ -132,17 +132,19 @@ public class DisplayWorkOutFragment extends Fragment {
         getWorkOutRecyclerView = v.findViewById(R.id.program_details_recylerview);
         workoutNameTextView = v.findViewById(R.id.workout_name_textview);
         workOutDetailTextview = v.findViewById(R.id.workout_detail_textview);
+        weightTextView = v.findViewById(R.id.weight_textview);
+
     }
 
     public void getPHAT() {
-        ProgramsDetail programsDetail = new ProgramsDetail(workoutDescription,  getActivity().getResources().getString(R.string.barbell_row));
-        ProgramsDetail programsDetail2 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.pull_up));
-        ProgramsDetail programsDetail3 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.seated_cable_row));
-        ProgramsDetail programsDetail4 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.flat_dumbell_press));
-        ProgramsDetail programsDetail5 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.dips));
-        ProgramsDetail programsDetail6 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.seated_dumbell_shoulder_press));
-        ProgramsDetail programsDetail7 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.barbell_curl));
-        ProgramsDetail programsDetail8 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.skullcrushers));
+        ProgramsDetail programsDetail = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.barbell_row), 5);
+        ProgramsDetail programsDetail2 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.pull_up), 5);
+        ProgramsDetail programsDetail3 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.seated_cable_row), 5);
+        ProgramsDetail programsDetail4 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.flat_dumbell_press), 5);
+        ProgramsDetail programsDetail5 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.dips), 5);
+        ProgramsDetail programsDetail6 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.seated_dumbell_shoulder_press), 5);
+        ProgramsDetail programsDetail7 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.barbell_curl), 5);
+        ProgramsDetail programsDetail8 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.skullcrushers), 5);
         programsDetailList.add(programsDetail);
         programsDetailList.add(programsDetail2);
         programsDetailList.add(programsDetail3);

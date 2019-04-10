@@ -30,7 +30,7 @@ public class ProgramDetailsAdapter extends RecyclerView.Adapter<ProgramDetailsVi
     @Override
     public void onBindViewHolder(@NonNull ProgramDetailsViewHolder programDetailsViewHolder, int i) {
         ProgramsDetail programsDetail = programsDetailList.get(i);
-        programDetailsViewHolder.onBindWorkout(programsDetail  );
+        programDetailsViewHolder.onBindWorkout(programsDetail );
 
     }
 

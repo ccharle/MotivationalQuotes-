@@ -3,6 +3,7 @@ package org.pursuit.utrainer.view;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.pursuit.utrainer.R;
@@ -18,11 +19,11 @@ public class WorkOutProgramsViewHolder extends RecyclerView.ViewHolder {
     private WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener;
 
 
+
     public WorkOutProgramsViewHolder(@NonNull final View itemView, WorkOutProgramsFragment.OnFragmentInteractionListener onFragmentInteractionListener) {
         super(itemView);
         this.onFragmentInteractionListener = onFragmentInteractionListener;
         setViews();
-
 
 
     }
@@ -46,9 +47,7 @@ public class WorkOutProgramsViewHolder extends RecyclerView.ViewHolder {
         });
 
 
-
     }
-
 
 
 }
