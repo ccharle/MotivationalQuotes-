@@ -56,7 +56,9 @@ public class WorkOutProgramsFragment extends Fragment {
 
         }
         WorkoutPrograms PHAT = new WorkoutPrograms("P.H.A.T");
+        WorkoutPrograms PHUL = new WorkoutPrograms("P.H.U.L");
         workoutProgramsList.add(PHAT);
+        workoutProgramsList.add(PHUL);
     }
 
     @Override

@@ -62,8 +62,13 @@ public class DisplayWorkOutFragment extends Fragment {
 
                 case "P.H.A.T": {
                     getPHAT();
+                    break;
 
+                }
+                case "P.H.U.L": {
 
+                    getPHUL();
+                    break;
                 }
 
 
@@ -154,4 +159,24 @@ public class DisplayWorkOutFragment extends Fragment {
         programsDetailList.add(programsDetail7);
         programsDetailList.add(programsDetail8);
     }
+
+    public void getPHUL() {
+        ProgramsDetail programsDetail = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.barbell_bench_press), 5);
+        ProgramsDetail programsDetail2 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.flat_dumbell_press), 5);
+        ProgramsDetail programsDetail3 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.bent_over_row), 5);
+        ProgramsDetail programsDetail4 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.lat_pulldown), 5);
+        ProgramsDetail programsDetail5 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.overhead_press), 5);
+        ProgramsDetail programsDetail6 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.barbell_curl), 5);
+        ProgramsDetail programsDetail7 = new ProgramsDetail(workoutDescription, getActivity().getResources().getString(R.string.skullcrushers), 5);
+        programsDetailList.add(programsDetail);
+        programsDetailList.add(programsDetail2);
+        programsDetailList.add(programsDetail3);
+        programsDetailList.add(programsDetail4);
+        programsDetailList.add(programsDetail5);
+        programsDetailList.add(programsDetail6);
+        programsDetailList.add(programsDetail7);
+
+
+    }
+
 }
