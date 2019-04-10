@@ -3,4 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorRedDark">#8e0038</color>
+    <color name="colorLightRed">#bc477b</color>
+    <color name="essieMint">#CCE2D6</color>
+    <color name="blessOrange">#FF763D</color>
+    <color name="lipstickRed">#F92809</color>
+    <color name="kathleenTan">#FFE8C6</color>
+    <color name="cornFlowerBlue">#5EA5DD</color>
 </resources>

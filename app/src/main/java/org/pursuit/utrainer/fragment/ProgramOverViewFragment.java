@@ -11,9 +11,7 @@ import android.view.ViewGroup;
 import org.pursuit.utrainer.R;
 
 
-
-public class programs_fragment extends Fragment {
-
+public class ProgramOverViewFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -23,8 +21,13 @@ public class programs_fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public static programs_fragment newInstance(String param1, String param2) {
-        programs_fragment fragment = new programs_fragment();
+    public ProgramOverViewFragment() {
+
+    }
+
+
+    public static ProgramOverViewFragment newInstance(String param1, String param2) {
+        ProgramOverViewFragment fragment = new ProgramOverViewFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -44,8 +47,8 @@ public class programs_fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        return inflater.inflate(R.layout.fragment_programs_fragment, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_program_over_view, container, false);
     }
 
     public void onButtonPressed(Uri uri) {
@@ -71,8 +74,8 @@ public class programs_fragment extends Fragment {
         mListener = null;
     }
 
-
     public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
 }

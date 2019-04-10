@@ -7,18 +7,13 @@ public class MotivationalQuotes {
     private String first;
     private String second;
     private String third;
-
-    public MotivationalQuotes(String motivation, String first, String second, String third) {
-        this.motivation = motivation;
-        this.first = first;
-        this.second = second;
-        this.third = third;
-    }
-
+    private String fourth;
+    private String fifth;
+    private String sixth;
+    private String seventh;
 
 
     public String getMotivation() {
-
         return motivation;
     }
 
@@ -34,20 +29,43 @@ public class MotivationalQuotes {
         return third;
     }
 
-
-
-
-    public class MotivationalQuotesResponse {
-
-        private List<MotivationalQuotes> motivationalQuotes;
-
-        public MotivationalQuotesResponse(List<MotivationalQuotes> motivationalQuotes) {
-            this.motivationalQuotes = motivationalQuotes;
-        }
-
-        public List<MotivationalQuotes> getMotivationalQuotes() {
-            return motivationalQuotes;
-        }
+    public String getFourth() {
+        return fourth;
     }
 
+    public String getFifth() {
+        return fifth;
+    }
+
+    public String getSixth() {
+        return sixth;
+    }
+
+    public String getSeventh() {
+        return seventh;
+    }
+
+    public MotivationalQuotes(String motivation, String first, String second, String third, String fourth, String fifth, String sixth, String seventh) {
+        this.motivation = motivation;
+        this.first = first;
+        this.second = second;
+        this.third = third;
+        this.fourth = fourth;
+        this.fifth = fifth;
+        this.sixth = sixth;
+        this.seventh = seventh;
+    }
+
+    public class MotivationalResponse {
+
+        private List<MotivationalQuotes> motivational;
+
+        public List<MotivationalQuotes> getMotivational() {
+            return motivational;
+        }
+
+        public MotivationalResponse(List<MotivationalQuotes> motivational) {
+            this.motivational = motivational;
+        }
+    }
 }
