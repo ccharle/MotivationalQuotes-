@@ -1,18 +1,12 @@
 package org.pursuit.utrainer.view;
 
-import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.pursuit.utrainer.R;
-import org.pursuit.utrainer.database.UTrainerDatabase;
-import org.pursuit.utrainer.database.UTrainerDatabase_Impl;
-import org.pursuit.utrainer.database.WorkOutDatabase;
 import org.pursuit.utrainer.model.ProgramsDetail;
 
 public class ProgramDetailsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

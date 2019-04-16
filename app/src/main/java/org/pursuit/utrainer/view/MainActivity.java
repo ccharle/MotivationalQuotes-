@@ -1,5 +1,8 @@
 package org.pursuit.utrainer.view;
 
+import android.arch.persistence.room.Room;
+import android.arch.persistence.room.RoomDatabase;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -20,6 +23,9 @@ import android.widget.TextView;
 
 import org.pursuit.utrainer.R;
 import org.pursuit.utrainer.controller.ViewPagerAdapter;
+import org.pursuit.utrainer.database.UTrainerDatabase;
+import org.pursuit.utrainer.database.WorkOutDatabase;
+import org.pursuit.utrainer.fragment.DisplayHistoryFragment;
 import org.pursuit.utrainer.fragment.DisplayWorkOutFragment;
 import org.pursuit.utrainer.fragment.WorkOutProgramsFragment;
 import org.pursuit.utrainer.model.MotivationalQuotes;
@@ -38,7 +44,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements WorkOutProgramsFragment.OnFragmentInteractionListener, DisplayWorkOutFragment.OnProgramFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements WorkOutProgramsFragment.OnFragmentInteractionListener, DisplayWorkOutFragment.OnProgramFragmentInteractionListener, DisplayHistoryFragment.OnHistoryFragmentInteractionListener {
     private static final String TAG = "This is my error";
     private TabLayout uTrainerTabLayout;
     private ViewPager programsViewPager;
@@ -49,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
     private DrawerLayout drawerLayout;
     private String onConnectionFailure;
     private Toolbar toolbar;
+    private UTrainerDatabase uTrainerDatabase;
     private List<MotivationalQuotes> motivationalQuotesList = new ArrayList<>();
 
 
@@ -56,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        uTrainerDatabase = Room.databaseBuilder(this,UTrainerDatabase.class,"db - workout").build();
+
         onProgramTabSelected();
         messageTimer();
         setViews();
@@ -304,8 +313,24 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
         };
 
         thread.start();
+
+
     }
 
 
+    public void addWorkout(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                WorkOutDatabase workOutDatabase = new WorkOutDatabase();
+                workOutDatabase.setExerciseName("Barbell Curl");
+            }
+        }).start();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }
 
