@@ -10,4 +10,6 @@
     <color name="lipstickRed">#F92809</color>
     <color name="kathleenTan">#FFE8C6</color>
     <color name="cornFlowerBlue">#5EA5DD</color>
+    <color name="cornFLowerLighter">#93d6ff</color>
+    <color name="cornFLowerDark">#2076ab</color>
 </resources>

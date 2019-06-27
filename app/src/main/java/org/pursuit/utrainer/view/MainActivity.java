@@ -1,16 +1,12 @@
 package org.pursuit.utrainer.view;
 
 import android.arch.persistence.room.Room;
-import android.arch.persistence.room.RoomDatabase;
 import android.net.Uri;
-import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -20,16 +16,14 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
 import org.pursuit.utrainer.R;
-import org.pursuit.utrainer.controller.ViewPagerAdapter;
 import org.pursuit.utrainer.database.UTrainerDatabase;
 import org.pursuit.utrainer.database.WorkOutDatabase;
 import org.pursuit.utrainer.fragment.DisplayHistoryFragment;
 import org.pursuit.utrainer.fragment.DisplayWorkOutFragment;
+import org.pursuit.utrainer.fragment.MainScreenFragment;
 import org.pursuit.utrainer.fragment.WorkOutProgramsFragment;
 import org.pursuit.utrainer.model.MotivationalQuotes;
-import org.pursuit.utrainer.model.ProgramsDetail;
 import org.pursuit.utrainer.model.WorkoutPrograms;
 import org.pursuit.utrainer.network.RetrofitSingleton;
 
@@ -44,10 +38,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity implements WorkOutProgramsFragment.OnFragmentInteractionListener, DisplayWorkOutFragment.OnProgramFragmentInteractionListener, DisplayHistoryFragment.OnHistoryFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements WorkOutProgramsFragment.OnFragmentInteractionListener,
+        DisplayWorkOutFragment.OnProgramFragmentInteractionListener,
+        DisplayHistoryFragment.OnHistoryFragmentInteractionListener {
     private static final String TAG = "This is my error";
-    private TabLayout uTrainerTabLayout;
-    private ViewPager programsViewPager;
     private ImageView selectedTabImageView;
     private TextView quotesTextView;
     private String motivationalQuotes;
@@ -63,13 +57,11 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        uTrainerDatabase = Room.databaseBuilder(this,UTrainerDatabase.class,"db - workout").build();
-
-        onProgramTabSelected();
-        messageTimer();
+        uTrainerDatabase = Room.databaseBuilder(this, UTrainerDatabase.class, "db - workout").build();
         setViews();
+        //messageTimer();
         onNavItemSelection();
-        setTabImageView();
+        // setTabImageView();
 
         //tabPositonChange();
 //        uTrainerTabLayout.setupWithViewPager(programsViewPager);
@@ -129,57 +121,6 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
 
     }
 
-//    private void tabPositonChange() {
-//        uTrainerTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//
-//                int tabPosition = tab.getPosition();
-//                loadTabPhoto(tabPosition);
-//                switch (tabPosition) {
-//
-//                    case 0: {
-//                        selectedTabImageView.setImageResource(R.drawable.barbell_overhead);
-//                        onProgramTabSelected();
-//
-//
-//                        break;
-//
-//                    }
-//                    case 1: {
-//                        selectedTabImageView.setImageResource(R.drawable.pushup);
-//                        randomQuoteGenerator();
-//                        break;
-//                    }
-//                    case 2: {
-//                        selectedTabImageView.setImageResource(R.drawable.chart);
-//                        randomQuoteGenerator();
-//                        break;
-//
-//                    }
-//                    case 3: {
-//                        selectedTabImageView.setImageResource(R.drawable.history);
-//                        break;
-//
-//                    }
-//                    default:
-//                        break;
-//                }
-//            }
-//
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
-//
-//    }
 
     public void setRetrofit() {
         RetrofitSingleton.getInstance()
@@ -227,6 +168,17 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
         }
 
         quotesTextView.setText(motivationalQuotes);
+    }
+
+
+    private void initiateMainFragment() {
+        MainScreenFragment mainScreenFragment = new MainScreenFragment();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_container, mainScreenFragment)
+                .commit();
+
+
     }
 
     private void onProgramTabSelected() {
@@ -284,6 +236,10 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
                     onProgramTabSelected();
                     break;
 
+                case R.id.nav_progress:
+                    initiateMainFragment();
+                    break;
+
             }
             // Add code here to update the UI based on the item selected
             // For example, swap UI fragments here
@@ -318,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
     }
 
 
-    public void addWorkout(){
+    public void addWorkout() {
         new Thread(new Runnable() {
             @Override
             public void run() {

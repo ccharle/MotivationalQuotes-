@@ -1,4 +1,4 @@
-package org.pursuit.utrainer.view;
+package org.pursuit.utrainer.viewholder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -45,14 +45,14 @@ public class ProgramDetailsViewHolder extends RecyclerView.ViewHolder implements
         switch (v.getId()) {
 
             case R.id.increase_weight_button: {
-                counter+=5;
+                counter += 5;
                 weightSetTextView.setText(String.valueOf(counter));
 
                 break;
             }
             case R.id.decrease_weight_button: {
-                counter-=5;
-                if(counter == 0){
+                counter -= 5;
+                if (counter == 0) {
                     decreasebutton.setEnabled(false);
 
                 }
