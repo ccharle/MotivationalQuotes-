@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import org.pursuit.utrainer.R;
 import org.pursuit.utrainer.model.ProgramsDetail;
-import org.pursuit.utrainer.view.ProgramDetailsViewHolder;
+import org.pursuit.utrainer.viewholder.ProgramDetailsViewHolder;
 
 import java.util.List;
 

@@ -15,13 +15,14 @@ import org.pursuit.utrainer.model.WorkoutPrograms;
 
 public abstract class UTrainerDatabase extends RoomDatabase {
 
-    private static UTrainerDatabase uTrainerDatabaseInstance;
+    private static UTrainerDatabase uTrainerDatabaseInstance = null;
 
     public static UTrainerDatabase getInstance(Context context) {
         if (uTrainerDatabaseInstance == null) {
             uTrainerDatabaseInstance = Room.databaseBuilder(context.getApplicationContext(),
                     UTrainerDatabase.class,
                     "UtrainerDatabase")
+                    .fallbackToDestructiveMigration()
                     .build();
 
 

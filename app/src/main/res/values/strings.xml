@@ -47,4 +47,10 @@
     <string name="pounds">lbs.</string>
 
 
+    <string name="barbell_bench_press">Barbell Bench Press</string>
+    <string name="bent_over_row">Bent over Row</string>
+    <string name="lat_pulldown">Lat Pulldown</string>
+    <string name="overhead_press">Overhead Press</string>
+    \
+
 </resources>

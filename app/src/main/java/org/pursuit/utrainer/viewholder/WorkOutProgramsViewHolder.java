@@ -1,4 +1,4 @@
-package org.pursuit.utrainer.view;
+package org.pursuit.utrainer.viewholder;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;

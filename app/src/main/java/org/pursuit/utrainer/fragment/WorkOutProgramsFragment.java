@@ -56,7 +56,9 @@ public class WorkOutProgramsFragment extends Fragment {
 
         }
         WorkoutPrograms PHAT = new WorkoutPrograms("P.H.A.T");
+        WorkoutPrograms PHUL = new WorkoutPrograms("P.H.U.L");
         workoutProgramsList.add(PHAT);
+        workoutProgramsList.add(PHUL);
     }
 
     @Override
@@ -91,7 +93,7 @@ public class WorkOutProgramsFragment extends Fragment {
 
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement OnHistoryFragmentInteractionListener");
         }
     }
 

@@ -15,35 +15,44 @@ import java.util.List;
 @Entity(tableName = "workout")
 
 public class WorkOutDatabase {
-    private String workOutName;
-    private String workOutDescription;
+    private String exerciseName;
+    private Integer weight;
+    private Integer lastCompleted;
     @PrimaryKey
     @NonNull
-    private String bodyWorked;
+    private String workOutName;
 
-    public String getWorkOutName() {
-        return workOutName;
+    public String getExerciseName() {
+        return exerciseName;
     }
 
-    public void setWorkOutName(String workOutName) {
+    public void setLastCompleted(Integer lastCompleted) {
+        this.lastCompleted = lastCompleted;
+    }
+
+    public void setExerciseName(String exerciseName) {
+        this.exerciseName = exerciseName;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
+    }
+
+    public void setWorkOutName(@NonNull String workOutName) {
         this.workOutName = workOutName;
     }
 
-    public void setWorkOutDescription(String workOutDescription) {
-        this.workOutDescription = workOutDescription;
+    public Integer getWeight() {
+        return weight;
     }
 
-    public void setBodyWorked(@NonNull String bodyWorked) {
-        this.bodyWorked = bodyWorked;
-    }
-
-    public String getWorkOutDescription() {
-        return workOutDescription;
+    public Integer getLastCompleted() {
+        return lastCompleted;
     }
 
     @NonNull
-    public String getBodyWorked() {
-        return bodyWorked;
+    public String getWorkOutName() {
+        return workOutName;
     }
 
     @Dao
@@ -59,7 +68,7 @@ public class WorkOutDatabase {
         void delete(WorkOutDatabase workOutDatabase);
 
         @Query("SELECT * FROM  workout")
-        public List<WorkOutDatabase> getWorkOutName();
+        List<WorkOutDatabase> getWorkOutName();
 
 
     }
