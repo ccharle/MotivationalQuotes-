@@ -236,9 +236,6 @@ public class MainActivity extends AppCompatActivity implements WorkOutProgramsFr
                     onProgramTabSelected();
                     break;
 
-                case R.id.nav_progress:
-                    initiateMainFragment();
-                    break;
 
             }
             // Add code here to update the UI based on the item selected
